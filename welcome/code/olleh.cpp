@@ -20,6 +20,7 @@ void reverseWords(string str)
         cout << st.top();
         st.pop();
     }
+    cout<<"\n";
 }
 int main()
 {
