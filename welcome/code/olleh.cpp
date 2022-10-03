@@ -4,7 +4,7 @@ using namespace std;
 void reverseWords(string str)
 {
     stack<char> st;
-    for (int i = 0; i < str.length(); ++i) {
+    for (unsigned int i = 0; i < str.length(); ++i) {
         if (isalpha(str[i])|| isdigit(str[i]))
             st.push(str[i]);
         else {
@@ -28,3 +28,4 @@ int main()
     reverseWords(str);
     return 0;
 }
+
