@@ -1,8 +1,7 @@
 #include <iostream>
 #include <stack>
-#include <string>
 using namespace std;
-void reverseWords(std::string str)
+void reverseWords(string str)
 {
     stack<char> st;
     for (int i = 0; i < str.length(); ++i) {
