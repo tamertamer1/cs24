@@ -5,16 +5,16 @@
 using std::cout;
 
 FibVec::FibVec(){
-    point= new int[1]
+    point= new int[1];
 }
 FibVec::~FibVec(){
     delete [] point;
 }
 size_t FibVec::capacity() const{
- 
+    return 
 }
 size_t FibVec::count() const{
-    
+    return
 }
 void FibVec::insert(int value, size_t index){
     
