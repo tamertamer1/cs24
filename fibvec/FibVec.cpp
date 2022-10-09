@@ -11,10 +11,10 @@ FibVec::~FibVec(){
     delete [] point;
 }
 size_t FibVec::capacity() const{
-    return 
+    return; 
 }
 size_t FibVec::count() const{
-    return
+    return;
 }
 void FibVec::insert(int value, size_t index){
     
