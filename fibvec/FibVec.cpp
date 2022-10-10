@@ -25,7 +25,7 @@ void FibVec::insert(int value, size_t index){
     
 }
 int FibVec::lookup(size_t index) const{
-    
+    return size;    
 }
 void FibVec::pop(){
     
