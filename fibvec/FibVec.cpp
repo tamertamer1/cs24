@@ -57,9 +57,10 @@ int FibVec::pop(){
         int *temp = new int[size];
         for (int i=0;i<elm;i++){
             temp[i]=point[i];
-        }
+        }	
         delete [] point;
         point=temp;
+        delete[] temp;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
         }
