@@ -89,6 +89,10 @@ int FibVec::remove(size_t index){
         delete[] point;
         point = newArray;
         --size;
+        --elm;
+        if (elm<previousFibonacci(previousFibonacci(size))){
+            resize(previousFibonacci(size));
+        }
         return val;
     }
 }
