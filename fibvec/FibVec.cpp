@@ -112,7 +112,7 @@ int FibVec::remove(size_t index){
             temp[i]=point[i];
         }
         for(int i=index+1;i<elm;i++){
-            temp[i]=point[i];
+            temp[i-1]=point[i];
         }
         delete[] point;
         point=temp;
