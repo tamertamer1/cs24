@@ -104,7 +104,7 @@ void FibVec::push(int value){
     elmcomp++;
 }
 int FibVec::remove(size_t index){
-    if (index>(elmcomp)){
+    if (index>=(elmcomp)){
         throw std::out_of_range("Index out of range");
     }
     else{
