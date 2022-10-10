@@ -47,8 +47,9 @@ int FibVec::lookup(size_t index) const{
     }
     
 }
-void FibVec::pop(){
+int FibVec::pop(){
     if(size>0){
+        int last=point[elm-1];
         int *temp = new int[size];
         for (int i=0;i<elm;i++){
             point[i]=temp[i];
@@ -56,7 +57,7 @@ void FibVec::pop(){
         delete [] point;
         point=temp;
         delete temp;
-
+        return 
     }
     else{
         throw std::underflow_error("Vector is empty");

@@ -9,7 +9,7 @@ class FibVec{
             size_t count() const;
             void insert (int value,size_t index );
             int lookup(size_t index) const;
-            void pop();
+            int pop();
             void push(int value);
             void remove(size_t index);
             
