@@ -97,7 +97,7 @@ void FibVec::push(int value){
     if (size== elm){
 		resize(nextFibonacci(size));
         }
-	point[elm++] = value;
+	point[elm+1] = value;
     elm++;
     elmcomp++;
 }
