@@ -15,7 +15,7 @@ int FibVec::previousFibonacci(int n) const{
 void FibVec::resize(int new_size){
     int *temp;
 	temp = new int [new_size];
-	for (int i = 0; i < size; ++i)
+	for (int i = 0; i < elm; ++i)
 	{
 		temp[i] = point[i];
 	}
@@ -118,6 +118,9 @@ int FibVec::remove(size_t index){
         point=temp;
         elm=elm-1;
         elmcomp=elmcomp-1;
+	if (elm<(previousFibonacci(previousFibonacci(size)))){
+            resize(previousFibonacci(size));
+        }
         return val;
     }
 }
