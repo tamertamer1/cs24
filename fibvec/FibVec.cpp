@@ -118,9 +118,6 @@ int FibVec::remove(size_t index){
         point=temp;
         elm=elm-1;
         elmcomp=elmcomp-1;
-        if (elm<previousFibonacci(previousFibonacci(size))){
-            resize(previousFibonacci(size));
-        }
         return val;
     }
 }
