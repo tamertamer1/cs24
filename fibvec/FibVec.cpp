@@ -29,6 +29,7 @@ FibVec::FibVec(){
     size=1;
     sizecomp=1;
     elm=0;
+    elmcomp=0;
 }
 FibVec::~FibVec(){
     delete [] point;
@@ -40,7 +41,7 @@ size_t FibVec::count() const{
     return elm;
 }
 void FibVec::insert(int value, size_t index){
-    if(index>elm-1){
+    if(index>elmcomp-1){
         throw std::out_of_range("Index out of range");
     }
     else{
@@ -58,10 +59,11 @@ void FibVec::insert(int value, size_t index){
         delete[] point;
         point=temp;
         elm++;
+        elmcomp++;
     }
 }
 int FibVec::lookup(size_t index) const{
-    if (index>(elm-1)){
+    if (index>(elmcomp-1)){
         throw std::out_of_range("Index out of range");
     }
     else{
@@ -79,6 +81,8 @@ int FibVec::pop(){
         delete [] point;
         point=temp;
         delete [] temp;
+        elm=elm-1;
+        elmcomp=elmcomp-1;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
         }
@@ -94,6 +98,8 @@ void FibVec::push(int value){
 		resize(nextFibonacci(size));
         }
 	point[elm++] = value;
+    elm++;
+    elmcomp++;
 }
 int FibVec::remove(size_t index){
     if (index>(elm-1)){
@@ -111,6 +117,7 @@ int FibVec::remove(size_t index){
         delete[] point;
         point=temp;
         elm=elm-1;
+        elmcomp=elmcomp-1;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
         }
