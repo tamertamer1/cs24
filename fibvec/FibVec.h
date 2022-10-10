@@ -19,4 +19,5 @@ class FibVec{
             int size;
             int elm;
             int nextFibonacci(int n) const;
+            void resize(int new_size);
 };

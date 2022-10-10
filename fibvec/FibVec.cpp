@@ -8,7 +8,17 @@ int FibVec::nextFibonacci(int n) const{
     double a = n * (1 + sqrt(5)) / 2.0;
     return round(a);
 }
-
+void FibVec::resize(int new_size){
+    int *temp;
+	temp = new int [new_size];
+	for (int i = 0; i < size; ++i)
+	{
+		temp[i] = point[i];
+	}
+	delete[] point;
+	point = temp;
+	size = new_size;
+}
 FibVec::FibVec(){
     point= new int[1];
 }
@@ -25,13 +35,29 @@ void FibVec::insert(int value, size_t index){
     
 }
 int FibVec::lookup(size_t index) const{
-    return size;    
+    if (index>(size-1)){
+        throw std::out_of_range("Index out of range");
+    }
+    else{
+        return point[index];
+    }
+    
 }
 void FibVec::pop(){
-    
+    if(size>0){
+        
+
+    }
+    else{
+        throw std::underflow_error("Vector is empty");
+    }
 }
 void FibVec::push(int value){
-    
+    if (size== elm){
+        size=nextFibonacci(size);
+		resize(size);
+        }
+	point[elm++] = value;
 }
 void FibVec::remove(size_t index){
     
