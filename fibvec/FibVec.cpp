@@ -60,7 +60,6 @@ int FibVec::pop(){
         }
         delete [] point;
         point=temp;
-        delete [] temp;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
         }
