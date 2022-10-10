@@ -41,7 +41,7 @@ size_t FibVec::count() const{
     return elm;
 }
 void FibVec::insert(int value, size_t index){
-    if(index>elmcomp-1){
+    if(index>elmcomp){
         throw std::out_of_range("Index out of range");
     }
     else{
