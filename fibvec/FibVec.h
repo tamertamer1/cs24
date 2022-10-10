@@ -1,5 +1,6 @@
+#include <iostream>
 using namespace std;
-#include <cstddef>
+
 class FibVec{
     public:
             FibVec();
@@ -12,6 +13,10 @@ class FibVec{
             void push(int value);
             void remove(size_t index);
             
+            
     private:
             int *point;
+            int size;
+            int elm;
+            int nextFibonacci(int n) const;
 };
