@@ -18,6 +18,7 @@ class FibVec{
             int *point;
             int size;
             int elm;
+            size_t sizecomp;
             int nextFibonacci(int n) const;
             void resize(int new_size);
 };
