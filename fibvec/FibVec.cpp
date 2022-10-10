@@ -56,7 +56,7 @@ int FibVec::pop(){
         }
         delete [] point;
         point=temp;
-        delete temp;
+        delete [] temp;
         return last; 
     }
     else{
