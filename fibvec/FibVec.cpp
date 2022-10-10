@@ -72,7 +72,7 @@ int FibVec::lookup(size_t index) const{
     
 }
 int FibVec::pop(){
-    if(size>0){
+    if(elm>0){
         int val=point[elm-1];
         int *temp = new int[size];
         for (int i=0;i<(elm-1);i++){
