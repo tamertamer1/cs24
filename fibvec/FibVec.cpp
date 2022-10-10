@@ -73,20 +73,22 @@ int FibVec::lookup(size_t index) const{
 }
 int FibVec::pop(){
     if(size>0){
-        int last=point[elm-1];
+        int val=point[elm-1];
         int *temp = new int[size];
-        for (int i=0;i<elm;i++){
+        for (int i=0;i<(elm-1);i++){
             temp[i]=point[i];
         }
-        delete [] point;
+        for(int i=elm;i<elm;i++){
+            temp[i-1]=point[i];
+        }
+        delete[] point;
         point=temp;
-        delete [] temp;
         elm=elm-1;
         elmcomp=elmcomp-1;
-        if (elm<previousFibonacci(previousFibonacci(size))){
+        if (elm<(previousFibonacci(previousFibonacci(size)))){
             resize(previousFibonacci(size));
         }
-        return last;
+        return val;
     }
 
     else{
@@ -118,9 +120,10 @@ int FibVec::remove(size_t index){
         point=temp;
         elm=elm-1;
         elmcomp=elmcomp-1;
-	if (elm<(previousFibonacci(previousFibonacci(size)))){
+	    if (elm<(previousFibonacci(previousFibonacci(size)))){
             resize(previousFibonacci(size));
         }
         return val;
     }
 }
+
