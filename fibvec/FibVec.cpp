@@ -58,7 +58,6 @@ void FibVec::insert(int value, size_t index){
         delete[] point;
         point=temp;
         elm++;
-        size++;
     }
 }
 int FibVec::lookup(size_t index) const{
@@ -107,7 +106,6 @@ int FibVec::remove(size_t index){
         std::copy(point+index+1, point+size, newArray+index);
         delete[] point;
         point = newArray;
-        --size;
         --elm;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
