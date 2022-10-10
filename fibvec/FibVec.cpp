@@ -57,7 +57,7 @@ int FibVec::pop(){
         delete [] point;
         point=temp;
         delete temp;
-        return 
+        return last; 
     }
     else{
         throw std::underflow_error("Vector is empty");
