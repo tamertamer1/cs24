@@ -11,7 +11,7 @@ class FibVec{
             int lookup(size_t index) const;
             int pop();
             void push(int value);
-            void remove(size_t index);
+            int remove(size_t index);
             
             
     private:
