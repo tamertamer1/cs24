@@ -53,7 +53,7 @@ void FibVec::insert(int value, size_t index){
             temp[i]=point[i];
         }
         temp[index]=value;
-        for(int i=index+1;i<elm;i++){
+        for(int i=index;i<elm;i++){
             temp[i+1]=point[i];
         }
         delete[] point;
