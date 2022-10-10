@@ -101,12 +101,16 @@ int FibVec::remove(size_t index){
     }
     else{
         int val=point[index];
-        int *newArray = new int[size-1];
-        std::copy(point, point+index, newArray);
-        std::copy(point+index+1, point+size, newArray+index);
+        int *temp = new int[size];
+        for (size_t i=0;i<index;i++){
+            temp[i]=point[i];
+        }
+        for(int i=index+1;i<elm;i++){
+            temp[i+1]=point[i];
+        }
         delete[] point;
-        point = newArray;
-        --elm;
+        point=temp;
+        elm=elm-1;
         if (elm<previousFibonacci(previousFibonacci(size))){
             resize(previousFibonacci(size));
         }
