@@ -44,15 +44,15 @@ void FibVec::insert(int value, size_t index){
         throw std::out_of_range("Index out of range");
     }
     else{
-        if (size=elm){
+        if (size==elm){
             resize(nextFibonacci(elm));
         }
         int *temp = new int[size];
-        for (int i=0;i<index;i++){
+        for (size_t i=0;i<index;i++){
             temp[i]=point[i];
         }
         temp[index]=value;
-        for(int i=index+1;i<elm;i++){
+        for(size_t i=index+1;i<elm;i++){
             temp[i+1]=point[i];
         }
         delete[] point;
@@ -63,7 +63,7 @@ void FibVec::insert(int value, size_t index){
 }
 int FibVec::lookup(size_t index) const{
     if (index>(sizecomp-1)){
-        
+        throw std::out_of_range("Index out of range");
     }
     else{
         return point[index];
