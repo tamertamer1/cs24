@@ -21,4 +21,5 @@ class FibVec{
             size_t sizecomp;
             int nextFibonacci(int n) const;
             void resize(int new_size);
+            int previousFibonacci(int n) const;
 };

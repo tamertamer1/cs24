@@ -8,6 +8,10 @@ int FibVec::nextFibonacci(int n) const{
     double a = n * (1 + sqrt(5)) / 2.0;
     return round(a);
 }
+int FibVec::previousFibonacci(int n) const{
+    double a = 2*n/(1+sqrt(5));
+    return round(a);
+}
 void FibVec::resize(int new_size){
     int *temp;
 	temp = new int [new_size];
@@ -52,13 +56,17 @@ int FibVec::pop(){
         int last=point[elm-1];
         int *temp = new int[size];
         for (int i=0;i<elm;i++){
-            point[i]=temp[i];
+            temp[i]=point[i];
         }
         delete [] point;
         point=temp;
         delete [] temp;
-        return last; 
+        if (elm<previousFibonacci(previousFibonacci(size))){
+            resize(previousFibonacci(size));
+        }
+        return last;
     }
+
     else{
         throw std::underflow_error("Vector is empty");
     }
