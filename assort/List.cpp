@@ -4,7 +4,7 @@
 std::string stri="hey";
 
 List::List(){
-    Node* head(0);
+    Node* List:: head(0);
 }
 
 List::List(const List& other){
