@@ -1,6 +1,8 @@
 #include "List.h"
 #include <iostream>
 
+std::string stri="hey";
+
 List::List(){
 
 }
@@ -40,6 +42,7 @@ std::string List::remove(size_t index){
 }
 
 const std::string& List::lookup(size_t index) const{
-    return "hey";
+    
+    return stri;
 
 }
