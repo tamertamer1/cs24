@@ -1,5 +1,5 @@
 #include "List.h"
-#include <iostream>>
+#include <iostream>
 
 List::List(){
 
@@ -25,7 +25,7 @@ void List::insert(const std::string& value){
 
 }
 
-void List::print(bool reverse = false) const{
+void List::print(bool reverse) const{
 
 }
 
