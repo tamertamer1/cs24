@@ -4,14 +4,14 @@
 std::string stri="hey";
 
 List::List(){
-
+    head(0);
 }
 
 List::List(const List& other){
 
 }
 List::List(List&& other){
-
+    
 }
 
 List::~List(){
@@ -19,8 +19,13 @@ List::~List(){
 }
 
 size_t List::count() const{
-
-    return 1;
+    int count = 0; // Initialize count
+    Node* current = head; // Initialize current
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+    return count;
 }
 
 void List::insert(const std::string& value){
