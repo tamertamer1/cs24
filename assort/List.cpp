@@ -80,7 +80,6 @@ std::string List::remove(size_t index){
 }
 
 const std::string& List::lookup(size_t index) const{
-    size_t values=count();
     Node* current = head;
     size_t count = 0;
     while (current != NULL) {
