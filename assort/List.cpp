@@ -75,7 +75,7 @@ size_t List::remove(const std::string& value){
     size_t counter =0;
     int totva=count();
     for (int i=0;i<totva;i++){
-        if (temp != NULL && temp->data == key){
+        if (temp != NULL && temp->data == value){
         head = temp->next;
         counter++;
         }
