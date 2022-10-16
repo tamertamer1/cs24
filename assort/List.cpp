@@ -73,19 +73,18 @@ size_t List::remove(const std::string& value){
     Node* temp = head;
     Node* prev = NULL;
     size_t counter =0;
-    int valnums =0;
     int totva=count();
-    while (valnums<totva){
-        while (temp != NULL || temp->data != value){
-            valnums++;
+    for (int i=0;i<totva;i++){
+        while (temp != NULL && temp->data != value){
             prev = temp;
             temp = temp->next; 
             }
+        if (temp==NULL){
+            return counter;
+        }
         counter++;
-        totva=totva-1;
         prev->next = temp->next;
     }
- 
     // Free memory
     delete temp;
     return counter;
