@@ -8,7 +8,18 @@ List::List(){
 }
 
 List::List(const List& other){
-    
+    if(!other.head) return;
+    head = new Node()
+    head->data=other.head->data;
+    Node *currSource = other.head;
+    Node *curr= head;
+    while (currSource->next){
+        curr->next=new Node();
+        curr->next->data=currSource->next->data;
+        currSource=currSource->next;
+        curr=curr->next;
+    }
+
 }
 List::List(List&& other){
     
@@ -111,7 +122,6 @@ size_t List::remove(const std::string& value){
 std::string removeRecursive(Node *start, size_t k){
     if (k == 0) 
     { 
-        std::string val = start->data;
         Node *res = start->next; 
         delete(start); 
         return val;   
