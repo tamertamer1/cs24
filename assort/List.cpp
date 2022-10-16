@@ -80,10 +80,11 @@ size_t List::remove(const std::string& value){
             valnums++;
             prev = temp;
             temp = temp->next;
+            totva=totva-1;
             }
         counter++;
         prev->next = temp->next;
-        }
+    }
  
     // Free memory
     delete temp;
