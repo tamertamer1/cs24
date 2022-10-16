@@ -72,7 +72,7 @@ void List::print(bool reverse) const{
 size_t List::remove(const std::string& value){
     Node* temp = head;
     Node* prev = NULL;
-    size_t count =0;
+    size_t counter =0;
     int valnums =0;
     int totva=count():
     while (valnums<totva){
@@ -81,7 +81,7 @@ size_t List::remove(const std::string& value){
             prev = temp;
             temp = temp->next;
             }
-        count++;
+        counter++;
         prev->next = temp->next;
         }
  
