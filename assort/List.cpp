@@ -1,6 +1,6 @@
 #include "List.h"
 #include <iostream>
-
+using namespace std;
 std::string stri="hey";
 
 List::List(){
@@ -62,7 +62,7 @@ void List::print(bool reverse) const{
         if (head == NULL){
         return;
         }
-    printReverse(head->next);
+    print(head->next);
     cout << head->data << " ";
     }
 }
