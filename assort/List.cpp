@@ -61,7 +61,7 @@ void List::print(bool reverse) const{
         }
 		current = current->next;
         }
-        cout<<"]";
+        cout<<"]"<<endl;
     }
 }
 
