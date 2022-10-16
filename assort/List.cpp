@@ -74,7 +74,7 @@ size_t List::remove(const std::string& value){
     Node* prev = NULL;
     size_t counter =0;
     int valnums =0;
-    int totva=count():
+    int totva=count();
     while (valnums<totva){
         while (temp != NULL && temp->data != value){
             valnums++;
@@ -87,7 +87,7 @@ size_t List::remove(const std::string& value){
  
     // Free memory
     delete temp;
-    return count;
+    return counter;
 }
 
 
