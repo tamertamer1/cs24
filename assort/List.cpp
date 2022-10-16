@@ -108,11 +108,23 @@ size_t List::remove(const std::string& value){
     return counter;
 }
 
-
+std::string removeRecursive(Node *start, size_t k){
+    if (k == 0) 
+    { 
+        std::string val = start->data;
+        Node *res = start->next; 
+        delete(start); 
+        return val;   
+    } 
+    start->next = removeRecursive(start->next, k-1); 
+    return start->data; 
+}
 
 std::string List::remove(size_t index){
-    return "hey";
-
+    size_t numvals=count()
+    if (index < 1||head==NULL||index>=numvals) 
+       throw std::out_of_range("Index out of range"); 
+    removeRecursive(head,index);
 }
 
 const std::string& List::lookup(size_t index) const{
