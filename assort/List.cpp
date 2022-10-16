@@ -8,7 +8,19 @@ List::List(){
 }
 
 List::List(const List& other){
-
+    if (other.head == NULL) {
+        head = NULL;
+    }
+    else {
+        head = new Node(other.head->value);
+        Node *current = head;
+        Node *objHead = other.head;
+        Node *currentObj = objHead;
+        while (currentObj->next != NULL) {
+            current->next = new Node(currentObj->next->value);
+            currentObj = currentObj->next;
+            current = current->next;
+        }
 }
 List::List(List&& other){
     
