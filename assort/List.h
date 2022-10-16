@@ -11,7 +11,6 @@ struct Node {
   std::string data;
   Node*       next;
 };
-void printReverseRecursive (Node *n);
 
 class List {
   Node* head;
