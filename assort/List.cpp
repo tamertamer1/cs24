@@ -8,20 +8,7 @@ List::List(){
 }
 
 List::List(const List& other){
-    if (other.head == NULL) {
-        head = NULL;
-    }
-    else {
-        head = new Node(other.head->data);
-        Node *current = head;
-        Node *objHead = other.head;
-        Node *currentObj = objHead;
-        while (currentObj->next != NULL) {
-            current->next = new Node(currentObj->next->data);
-            currentObj = currentObj->next;
-            current = current->next;
-        }
-    }
+    
 }
 List::List(List&& other){
     
@@ -83,9 +70,27 @@ void List::print(bool reverse) const{
 }
 
 size_t List::remove(const std::string& value){
-    return 1;
-
+    Node* temp = head;
+    Node* prev = NULL;
+    size_t count =0;
+    int valnums =0;
+    int totva=count():
+    while (valnums<totva){
+        while (temp != NULL && temp->data != value){
+            valnums++;
+            prev = temp;
+            temp = temp->next;
+            }
+        count++;
+        prev->next = temp->next;
+        }
+ 
+    // Free memory
+    delete temp;
+    return count;
 }
+
+
 
 std::string List::remove(size_t index){
     return "hey";
