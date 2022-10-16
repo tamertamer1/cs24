@@ -55,7 +55,10 @@ void List::print(bool reverse) const{
         current = head;
         cout<<"[";
         while (current != NULL){
-		cout << current->data << ", ";
+		cout << current->data;
+        if(current->next!=NULL){
+            cout<< ", ";
+        }
 		current = current->next;
         }
         cout<<"]";
