@@ -76,7 +76,7 @@ size_t List::remove(const std::string& value){
     int valnums =0;
     int totva=count();
     while (valnums<totva){
-        while (temp->data != value){
+        while (temp != NULL || temp->data != value){
             valnums++;
             prev = temp;
             temp = temp->next; 
