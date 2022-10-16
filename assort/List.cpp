@@ -78,7 +78,7 @@ void List::print(bool reverse) const{
     }
     else{
         cout<<"[";
-        printReverseRecursive(head)
+        printReverseRecursive(head);
         cout<<"]";
     }
 }
