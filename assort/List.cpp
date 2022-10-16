@@ -29,19 +29,21 @@ size_t List::count() const{
 }
 
 void List::insert(const std::string& value){
-    if (*head_ref == NULL|| (*head_ref)->data>= value->data) {
-        value->next = *head_ref;
-        *head_ref = value;
+    Node * new_node;
+    Node* current;
+    if (head == NULL|| (head)->value>= new_node->value) {
+        new_node->next = head;
+        head= new_node;
     }
     else {
         /* Locate the node before the
  point of insertion */
-        current = *head_ref;
-        while (current->next != NULL&& current->next->data< value->data) {
+        current = head;
+        while (current->next != NULL&& current->next->value< new_node->value) {
             current = current->next;
         }
-        value->next = current->next;
-        current->next = value;
+        new_node->next = current->next;
+        current->next = new_node;
     }
 }
 
