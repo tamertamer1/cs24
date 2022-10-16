@@ -13,11 +13,11 @@ List::List(const List& other){
 List::List(List&& other){
     
 }
-void printReverseRecursive (Node *n){
+void printReverseRecursive (Node *n,head){
     if(n) {
             printReverseRecursive(n->next);
             cout << n->data;
-            if(n->data!=head){
+            if(n->data != head->data){
             cout<< ", ";
             }
         }
@@ -78,7 +78,7 @@ void List::print(bool reverse) const{
     }
     else{
         cout<<"[";
-        printReverseRecursive(head);
+        printReverseRecursive(head,head);
         cout<<"]";
     }
 }
