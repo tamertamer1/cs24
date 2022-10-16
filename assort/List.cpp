@@ -32,7 +32,7 @@ void List::insert(const std::string& value){
    Node *new_node = new Node();
    new_node->data = value;
    new_node->next = NULL;
-
+   Node* current;
    if (head == NULL || (head)->data >= new_node->data) {
         new_node->next = head;
         head = new_node;
