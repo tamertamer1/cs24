@@ -47,7 +47,6 @@ void List::insert(const std::string& value){
         new_node->next = current->next;
         current->next = new_node;
     }
-    delete new_node;
     delete current;
 }
 
