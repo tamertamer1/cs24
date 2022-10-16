@@ -1,7 +1,7 @@
 #include "List.h"
 #include <iostream>
 using namespace std;
-std::string stri="hey";
+
 
 List::List(){
     head=NULL;
@@ -44,8 +44,6 @@ void List::insert(const std::string& value){
         head = new_node;
     }
     else {
-        /* Locate the node before the
- point of insertion */
         current = head;
         while (current->next != NULL&& current->next->data< new_node->data) {
             current = current->next;
@@ -82,7 +80,20 @@ std::string List::remove(size_t index){
 }
 
 const std::string& List::lookup(size_t index) const{
-    
-    return stri;
+    size_t values=count();
+    if (index>=values){
+        throw std::out_of_range("Index out of range");
+    }
+    else{
+        Node* current = head;
+        size_t count = 0;
+        while (current != NULL) {
+        if (count == index){
+            return (current->data);
+        }
+        count++;
+        current = current->next;
+        }
+    }
 
 }
