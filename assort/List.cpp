@@ -76,13 +76,13 @@ size_t List::remove(const std::string& value){
     int valnums =0;
     int totva=count();
     while (valnums<totva){
-        while (temp != NULL && temp->data != value){
+        while (temp->data != value){
             valnums++;
             prev = temp;
-            temp = temp->next;
-            totva=totva-1;
+            temp = temp->next; 
             }
         counter++;
+        totva=totva-1;
         prev->next = temp->next;
     }
  
