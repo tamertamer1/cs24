@@ -11,23 +11,22 @@ struct Node {
   std::string data;
   Node*       next;
 };
-
+void printReverseRecursive (Node *n);
 
 class List {
   Node* head;
+  public:
+    List();
+    List(const List& other);
+    List(List&& other);
+    ~List();
 
-public:
-  List();
-  List(const List& other);
-  List(List&& other);
-  ~List();
-
-  size_t             count() const;
-  void               insert(const std::string& value);
-  const std::string& lookup(size_t index) const;
-  void               print(bool reverse = false) const;
-  std::string        remove(size_t index);
-  size_t             remove(const std::string& value);
+    size_t             count() const;
+    void               insert(const std::string& value);
+    const std::string& lookup(size_t index) const;
+    void               print(bool reverse = false) const;
+    std::string        remove(size_t index);
+    size_t             remove(const std::string& value);
 };
 
 #endif
