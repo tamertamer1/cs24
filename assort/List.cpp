@@ -15,7 +15,7 @@ List::List(List&& other){
 }
 void printReverseRecursive (Node *n,Node *h){
     if(n) {
-            printReverseRecursive(n->next);
+            printReverseRecursive(n->next,h);
             cout << n->data;
             if(n->data != h->data){
             cout<< ", ";
