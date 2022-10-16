@@ -77,7 +77,7 @@ void List::print(bool reverse) const{
 void printReverseRecursive (Node *n){
     if(n) {
             printReverseRecursive(n->next);
-            cout << n->data <<;
+            cout << n->data;
             if(n->next!=NULL){
             cout<< ", ";
             }
