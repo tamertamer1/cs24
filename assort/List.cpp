@@ -15,7 +15,13 @@ List::List(List&& other){
 }
 
 List::~List(){
-
+    Node *cur =head;
+    Node *next = cur;
+    while (cur){
+        next= cur->next;
+        delete cur;
+        cur=next;
+    }
 }
 
 size_t List::count() const{
@@ -47,7 +53,6 @@ void List::insert(const std::string& value){
         new_node->next = current->next;
         current->next = new_node;
     }
-
 }
 
 void List::print(bool reverse) const{
