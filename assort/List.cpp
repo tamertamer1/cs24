@@ -14,6 +14,7 @@ List::List(List&& other){
     
 }
 
+
 List::~List(){
     Node *cur =head;
     Node *next = cur;
@@ -67,8 +68,21 @@ void List::print(bool reverse) const{
         }
         cout<<"]"<<endl;
     }
+    else{
+        cout<<"[";
+        printReverseRecursive(head)
+        cout<<"]";
+    }
 }
-
+void printReverseRecursive (Node *n){
+    if(n) {
+            printReverseRecursive(n->next);
+            cout << n->data <<;
+            if(n->next!=NULL){
+            cout<< ", ";
+            }
+        }
+}
 size_t List::remove(const std::string& value){
     Node* temp = head;
     Node* prev = NULL;
