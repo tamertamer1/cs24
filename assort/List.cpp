@@ -54,16 +54,9 @@ void List::print(bool reverse) const{
         Node * current;
         current = head;
         while (current != NULL){
-		cout << current->data << endl;
+		cout << current->data << " ";
 		current = current->next;
         }
-    }
-    else{
-        if (head == NULL){
-        return;
-        }
-    print(head->next);
-    cout << head->data << " ";
     }
 }
 
