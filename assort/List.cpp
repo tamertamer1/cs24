@@ -81,19 +81,15 @@ std::string List::remove(size_t index){
 
 const std::string& List::lookup(size_t index) const{
     size_t values=count();
-    if (index>=values){
-        throw std::out_of_range("Index out of range");
-    }
-    else{
-        Node* current = head;
-        size_t count = 0;
-        while (current != NULL) {
+    Node* current = head;
+    size_t count = 0;
+    while (current != NULL) {
         if (count == index){
             return (current->data);
         }
         count++;
         current = current->next;
-        }
     }
+    throw std::out_of_range("Index out of range");
 
 }
