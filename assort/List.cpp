@@ -50,7 +50,21 @@ void List::insert(const std::string& value){
 }
 
 void List::print(bool reverse) const{
-
+    if (reverse==false){
+        Node * current;
+        current = head;
+        while (current != NULL){
+		cout << current->data << endl;
+		current = current->next;
+        }
+    }
+    else{
+        if (head == NULL){
+        return;
+        }
+    printReverse(head->next);
+    cout << head->data << " ";
+    }
 }
 
 size_t List::remove(const std::string& value){
