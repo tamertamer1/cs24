@@ -17,7 +17,7 @@ void printReverseRecursive (Node *n){
     if(n) {
             printReverseRecursive(n->next);
             cout << n->data;
-            if(n->next!=NULL){
+            if(n->data!=head){
             cout<< ", ";
             }
         }
