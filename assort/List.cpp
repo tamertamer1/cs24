@@ -53,10 +53,12 @@ void List::print(bool reverse) const{
     if (reverse==false){
         Node * current;
         current = head;
+        cout<<"[";
         while (current != NULL){
-		cout << current->data << " ";
+		cout << current->data << ", ";
 		current = current->next;
         }
+        cout<<"]";
     }
 }
 
