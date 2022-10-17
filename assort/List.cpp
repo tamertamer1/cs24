@@ -126,46 +126,11 @@ std::string List::remove(size_t index){
         throw std::out_of_range("Index out of range");
     }
     else{
-        size_t l=0;
-        Node *cur=head;
-        if (index==0){
-            std::string c=cur->data;
-            head=cur->next;
-            delete cur;
-            return c;
-        }
-
-        if (index==count()-1){
-            Node* second_last = head;
-            while (second_last->next->next != NULL){
-            second_last = second_last->next;
-            }
-            // Delete last node
-            std::string c= second_last->next->data;
-            delete (second_last->next);
-            // Change next of second last
-            second_last->next = NULL;
-            delete second_last;
-            return c;
-
-        }
-
-        while (l+1!=index){
-            cur=cur->next;
-            l++;
-        }
-        if(!cur->next->next){
-            std::string c=cur->next->data;
-            cur->next=NULL;
-            delete cur;
-            return c;
-        }
-        std::string c =cur->next->data;
-        cur->next=cur->next->next;
-        delete cur;
-        return c;
-    }
-}    
+        std::string stir=lookup(index);
+        remove(stir);
+        return stir;
+}
+    
 
 
 const std::string& List::lookup(size_t index) const{
