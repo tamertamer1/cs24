@@ -158,6 +158,7 @@ std::string List::remove(size_t index){
         free(temp);
         return val;
     }
+    }
 }
 
 const std::string& List::lookup(size_t index) const{
