@@ -136,7 +136,7 @@ std::string List::remove(size_t index){
             // If count of nodes in the given linked list is <= N
             if (second->next == NULL) {
                 // If count = N i.e. delete the head node
-                if (i == key - 1) {
+                if (i == index - 1) {
                     temp = head;
                     head = head->next;
                     free(temp);
@@ -151,7 +151,6 @@ std::string List::remove(size_t index){
         while (second->next != NULL) {
             first = first->next;
             second = second->next;
-        }
         // First must be pointing to the Nth node from the
         // end by now So, delete the node first is pointing to
         temp = first->next;
