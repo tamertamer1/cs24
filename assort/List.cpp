@@ -12,13 +12,14 @@ List::List(const List& other){
     head->data=other.head->data;
     Node *curother=other.head;
     Node *cur=head;
-    while (curother){
+    while (curother->next){
         cur->next=new Node();
-        cur->data=curother->data();
+        cur->next->data=curother->next->data();
         curother=curother->next;
-        cur=cur->next;
-        cur->next=nullptr;   
+        cur=cur->next;   
     }
+    curother=other.head;
+    delete curother;
 
 }
 
