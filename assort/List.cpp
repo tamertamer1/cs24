@@ -129,6 +129,7 @@ std::string List::remove(size_t index){
         std::string stir=lookup(index);
         remove(stir);
         return stir;
+    }
 }
     
 
