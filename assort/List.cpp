@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-
+std::string c="hi";
 List::List(){
     head=NULL;
 }
@@ -96,18 +96,7 @@ void List::print(bool reverse) const{
 }
 
 size_t List::remove(const std::string& value){
-    Node* current = head;
-    size_t count = 0;
-    size_t counter=0;
-    while (current != NULL) {
-        if (current->data == value){
-            remove(count);
-            counter++;
-        }
-        count++;
-        current = current->next;
-    }
-    return counter;
+    return c;
 }
 
 
