@@ -8,18 +8,34 @@ List::List(){
 }
 
 List::List(const List& other){
-    if(!other.head) return;
-    head = new Node();
-    head->data=other.head->data;
-    Node *currSource = other.head;
-    Node *curr= head;
-    while (currSource->next){
-        curr->next=new Node();
-        curr->next->data=currSource->next->data;
-        currSource=currSource->next;
-        curr=curr->next;
+    if (other.head == nullptr){
+        return;
     }
-    delete curr;
+    Node* tmp = other.head;
+
+    head = new Node;
+    head->data = tmp->data;
+    head->next = nullptr;
+    Node *current = head;
+    
+    // Move to next item in ll's list.
+    tmp = tmp->next;
+
+    while (tmp != nullptr)
+    {
+        // Allocate new memory for a new 'node'.
+        current->next = new Node;
+        // Point to this new 'node'.
+        current = current->next;
+        // Copy over the data.
+        current->data = tmp->data;
+        // By default set the 'next' to null.
+        current->next = nullptr;
+        // Move along ll's list.
+        tmp = tmp->next;
+    }
+    delete tmp;
+    delete current;
 
 }
 List::List(List&& other){
