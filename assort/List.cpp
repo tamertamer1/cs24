@@ -96,62 +96,57 @@ void List::print(bool reverse) const{
 
 
 size_t List::remove(const std::string& value){
-    size_t ogcount= count();
-    Node *temp = head;
-    Node *prev = head;
-    while(temp!=NULL) {
-        if(temp->data == value){
-        if(temp == head) {
-            head = temp->next;
-            delete temp;
-            temp = head;
-        } else {
-            prev->next = temp->next;
-            delete temp;
-            temp = prev->next;
-        }
-      } else {
-         prev = temp;
-         temp = temp->next;
-      }
-   }
-   return ogcount-count();
+
+    if(firstNode == NULL)
+        return;
+
+    if(firstNode->next == NULL)
+    {
+        delete firstNode;
+        firstNode = NULL;
+        return;
+    }
+
+    Node* currNode = firstNode;
+    while (currNode->next && currNode->next->next != NULL)
+    {
+        currNode = currNode->next;
+    }
+    delete currNode->next;
+    currNode->next = NULL;
 } 
 
 
 
 
 std::string List::remove(size_t index){
-    if (head==NULL||index>=count()){
+    if (index>=count()){
         throw std::out_of_range("Index out of range");
     }
-    std::string ogval=lookup(index);
-    // Store head node
-    Node* temp = head;
-    // If head needs to be removed
-    if (index == 0) {
-        // Change head
-        head = temp->next;
-        // Free old head
-        free(temp);
-        return ogval;
+    else{
+        size_t l=0;
+        Node *cur=head;
+        if (index==0){
+            std::string c=cur->data;
+            head=cur->next;
+            delete cur;
+            return c;
+        }
+        while (l+1!=index){
+            cur=cur->next;
+            l++;
+        }
+        if(!cur->next->next){
+            std::string c=cur->next->data;
+            cur->next=NULL;
+            delete cur;
+            return c;
+        }
+        std::string c =cur->next->data;
+        cur->next=cur->next->next;
+        delete cur;
+        return c;
     }
- 
-    // Find previous node of the node to be deleted
-    for (size_t i = 0; temp != NULL && i < index - 2; i++)
-        temp = temp->next;
- 
-    // Node temp->next is the node to be deleted
-    // Store pointer to the next of node to be deleted
-    Node* next = temp->next->next;
- 
-    // Unlink the node from linked list
-    free(temp->next); // Free memory
- 
-    // Unlink the deleted node from list
-    temp->next = next;
-
-    return ogval;
 }    
 
 
