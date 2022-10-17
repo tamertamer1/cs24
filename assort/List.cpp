@@ -96,27 +96,14 @@ void List::print(bool reverse) const{
 
 
 size_t List::remove(const std::string& value){
-    size_t ogcount=count();
-    Node* nodeToDelete;
-      while(head != NULL && head->data == value) {
-        nodeToDelete = head;
-        head = head->next;
-        free(nodeToDelete);
-      } 
-
-      Node* temp = head;        
-      if(temp != NULL) {
-        while(temp->next != NULL) {
-          if(temp->next->data == value) {
-            nodeToDelete = temp->next;
-            temp->next = temp->next->next;
-            free(nodeToDelete);
-          } else {
-            temp = temp->next;
-          }
-    }
-    }
-    delete temp;
+    Node** p = &head;
+    while(*p)
+        if((*p)->item == key) {
+            Node* tmp = (*p)->next;
+            delete *p;
+            *p = tmp;
+        } else
+            p = &(*p)->next;
     return ogcount-count();
 } 
 
