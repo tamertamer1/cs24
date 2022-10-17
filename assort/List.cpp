@@ -1,8 +1,6 @@
 #include "List.h"
 #include <iostream>
 using namespace std;
-
-std::string limo="hi";
 List::List(){
     head=NULL;
 }
@@ -96,7 +94,7 @@ void List::print(bool reverse) const{
 }
 
 size_t List::remove(const std::string& value){
-    return limo;
+    return 0;
 }
 
 
