@@ -96,6 +96,32 @@ void List::print(bool reverse) const{
 
 
 size_t List::remove(const std::string& value){
+    size_t ogcount= count();
+    Node *temp = head;
+    Node *prev = head;
+    while(temp!=NULL) {
+        if(temp->data == value){
+        if(temp == head) {
+            head = temp->next;
+            delete temp;
+            temp = head;
+        } else {
+            prev->next = temp->next;
+            delete temp;
+            temp = prev->next;
+        }
+      } else {
+         prev = temp;
+         temp = temp->next;
+      }
+   }
+   return ogcount-count();
+} 
+
+
+
+
+std::string List::remove(size_t index){
     if (index>=count()||index<0){
         throw std::out_of_range("Index out of range");
     }
@@ -123,30 +149,6 @@ size_t List::remove(const std::string& value){
         delete cur;
         return c;
     }
-} 
-
-
-
-
-std::string List::remove(size_t index){
-    if (head==NULL||index>=count()){
-        throw std::out_of_range("Index out of range");
-    }
-    std::string ogval=lookup(index);
-    Node* temp = head;
-    if (index == 0) {
-        head = temp->next;
-        free(temp);
-        return ogval;
-    }
-    for (size_t i = 0; temp != NULL && i < index - 2; i++)
-        temp = temp->next;
-    Node* next = temp->next->next;
-
-    free(temp->next); 
-    temp->next = next;
-
-    return ogval;
 }    
 
 
