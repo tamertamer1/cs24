@@ -96,17 +96,20 @@ void List::print(bool reverse) const{
 Node* deleteKey(Node* head, std::string value)
 {
     // In Linked List is empty Just return it
-    if (!head)
+    if (!head){
         return head;
+    }
     // Until the head data is equal to the key move the head
     // pointer
-    while (head && head->data == x)
+    while (head && head->data == value){
         head = head->next;
+    }
     Node *curr = head, *prev = nullptr;
   
     while (curr) {
-        if (curr->data == x)
+        if (curr->data == value){
             prev->next = curr->next;
+        }
         else
             prev = curr;
         curr = curr->next;
