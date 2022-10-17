@@ -6,19 +6,18 @@ List::List(){
 }
 
 List::List(const List& other){
-    if (other.head == NULL) {
-        head = NULL;
-    }
-    else {
-        head = new Node(other.head->data);
-        Node *current = head;
-        Node *objHead = other.head;
-        Node *currentObj = objHead;
-        while (currentObj->next != NULL) {
-            current->next = new Node(currentObj->next->data);
-            currentObj = currentObj->next;
-            current = current->next;
-        }
+    if(!other.head){return;}
+    head=new Node();
+    head->next=nullptr;
+    head->data=other.head->data;
+    Node *curother=other.head;
+    Node *cur=head;
+    while (curother){
+        cur->next=new Node();
+        cur->data=curother->data();
+        curother=curother->next;
+        cur=cur->next;
+        cur->next=nullptr;   
     }
 
 }
