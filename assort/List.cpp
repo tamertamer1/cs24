@@ -10,12 +10,12 @@ List::List(const List& other){
         head = NULL;
     }
     else {
-        head = new Node(other.head->value);
+        head = new Node(other.head->data);
         Node *current = head;
         Node *objHead = other.head;
         Node *currentObj = objHead;
         while (currentObj->next != NULL) {
-            current->next = new Node(currentObj->next->value);
+            current->next = new Node(currentObj->next->data);
             currentObj = currentObj->next;
             current = current->next;
         }
