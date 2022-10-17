@@ -107,6 +107,7 @@ size_t List::remove(const std::string& value){
         count++;
         current = current->next;
     }
+    return counter;
 }
 
 
