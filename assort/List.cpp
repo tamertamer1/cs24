@@ -19,6 +19,8 @@ List::List(const List& other){
         currSource=currSource->next;
         curr=curr->next;
     }
+    delete currSource;
+    delete curr;
 
 }
 List::List(List&& other){
