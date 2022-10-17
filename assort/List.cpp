@@ -117,7 +117,6 @@ size_t List::remove(const std::string& value){
     }
     }
     delete temp;
-    delete nodeToDelete;
     return ogcount-count();
 } 
 
