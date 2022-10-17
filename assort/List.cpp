@@ -115,6 +115,7 @@ Node* deleteKey(Node* head, std::string value)
         curr = curr->next;
     }
     delete curr;
+    delete prev;
     return head;
 }
 
