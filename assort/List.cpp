@@ -19,7 +19,6 @@ List::List(const List& other){
         currSource=currSource->next;
         curr=curr->next;
     }
-    delete currSource;
     delete curr;
 
 }
@@ -124,20 +123,28 @@ size_t List::remove(const std::string& value){
 
 
 std::string List::remove(size_t index){
-    size_t numvals=count();
-    if (head==NULL||index>=numvals){
-       throw std::out_of_range("Index out of range"); 
+    if (index>=count()){
+        throw std::out_of_range("Index out of range");
     }
-    else{
-        std::string val = lookup(index);
-        index=numvals-index;
-        Node *fast = head, *slow = head;
-        for (size_t i = 0; i < index; i++) fast = fast->next;
-        if (!fast) return val;
-        while (fast->next) fast = fast->next, slow = slow->next;
-        slow->next = slow->next->next;
-        return val;
-    }
+        size_t l=0;
+        Node *cur=head;
+        if (index==0){
+            std::string c=cur->data;
+            head=cur->next;
+            return c;
+        }
+        while (l+1!=index){
+            cur=cur->next;
+            l++;
+        }
+        if(!cur->next->next){
+            std::string c=cur->next->data;
+            cur->next=NULL;
+            return c;
+        }
+        std::string c =cur->next->data;
+        cur->next=cur->next->next;
+        return c;
 }
 
 const std::string& List::lookup(size_t index) const{
