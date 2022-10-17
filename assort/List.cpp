@@ -14,7 +14,7 @@ List::List(const List& other){
     Node *cur=head;
     while (curother->next){
         cur->next=new Node();
-        cur->next->data=curother->next->data();
+        cur->next->data=curother->next->data;
         curother=curother->next;
         cur=cur->next;   
     }
