@@ -131,7 +131,7 @@ std::string List::remove(size_t index){
         index=numvals-index;
         Node *fast = head, *slow = head;
         for (size_t i = 0; i < index; i++) fast = fast->next;
-        if (!fast) return head->next;
+        if (!fast) return val;
         while (fast->next) fast = fast->next, slow = slow->next;
         slow->next = slow->next->next;
         return val;
