@@ -122,35 +122,38 @@ size_t List::remove(const std::string& value){
 
 
 std::string List::remove(size_t index){
-    if (index>=count()){
+    if (head=NULL||index>=count()){
         throw std::out_of_range("Index out of range");
     }
-    else{
-        size_t l=0;
-        Node *cur=head;
-        if (index==0){
-            std::string c=cur->data;
-            head=cur->next;
-            delete cur;
-            return c;
-        }
-        while (l+1!=index){
-            cur=cur->next;
-            l++;
-        }
-        if(!cur->next->next){
-            std::string c=cur->next->data;
-            cur->next=NULL;
-            delete cur;
-            return c;
-        }
-        std::string c =cur->next->data;
-        cur->next=cur->next->next;
-        delete cur;
-        return c;
+    std::string ogval=lookup(index);
+    // Store head node
+    Node* temp = head;
+    // If head needs to be removed
+    if (index == 0) {
+        // Change head
+        head = temp->next;
+        // Free old head
+        free(temp);
+        return ogval;
     }
+ 
+    // Find previous node of the node to be deleted
+    for (size_t i = 0; temp != NULL && i < index - 2; i++)
+        temp = temp->next;
+ 
+    // Node temp->next is the node to be deleted
+    // Store pointer to the next of node to be deleted
+    Node* next = temp->next->next;
+ 
+    // Unlink the node from linked list
+    free(temp->next); // Free memory
+ 
+    // Unlink the deleted node from list
+    temp->next = next;
 
-}
+    return ogval;
+}    
+
 
 const std::string& List::lookup(size_t index) const{
     Node* current = head;
