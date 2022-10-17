@@ -114,12 +114,14 @@ Node* deleteKey(Node* head, std::string value)
             prev = curr;
         curr = curr->next;
     }
+    delete curr;
     return head;
 }
 
 size_t List::remove(const std::string& value){
     size_t ogcount = count();
     head=deleteKey(head,value);
+    delete deleteKey;
     return ogcount-count();
 }
 
