@@ -129,35 +129,12 @@ std::string List::remove(size_t index){
     else{
         std::string val = lookup(index);
         index=numvals-index;
-        Node *temp;
-        Node* first = head;
-        Node* second = head;
-        for (size_t i = 0; i < index; i++) {
-            // If count of nodes in the given linked list is <= N
-            if (second->next == NULL) {
-                // If count = N i.e. delete the head node
-                if (i == index - 1) {
-                    temp = head;
-                    head = head->next;
-                    free(temp);
-                }
-                return val;
-            }
-            second = second->next;
-        }
- 
-        // Increment both the pointers by one until second
-        // pointer reaches the end
-        while (second->next != NULL) {
-            first = first->next;
-            second = second->next;
-        // First must be pointing to the Nth node from the
-        // end by now So, delete the node first is pointing to
-        temp = first->next;
-        first->next = first->next->next;
-        free(temp);
+        Node *fast = head, *slow = head;
+        for (size_t i = 0; i < index; i++) fast = fast->next;
+        if (!fast) return head->next;
+        while (fast->next) fast = fast->next, slow = slow->next;
+        slow->next = slow->next->next;
         return val;
-    }
     }
 }
 
