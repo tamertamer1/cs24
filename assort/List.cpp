@@ -122,7 +122,7 @@ size_t List::remove(const std::string& value){
 
 
 std::string List::remove(size_t index){
-    if (head=NULL||index>=count()){
+    if (head==NULL||index>=count()){
         throw std::out_of_range("Index out of range");
     }
     std::string ogval=lookup(index);
