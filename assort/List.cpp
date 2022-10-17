@@ -6,20 +6,23 @@ List::List(){
 }
 
 List::List(const List& other){
-    if(!other.head) return;
-    head = new Node();
-    head->data=other.head->data;
-    Node *currSource = other.head;
-    Node *curr= head;
-    while (currSource->next){
-        curr->next=new Node();
-        curr->next->data=currSource->next->data;
-        currSource=currSource->next;
-        curr=curr->next;
+    if (other.head == NULL) {
+        head = NULL;
     }
-    delete curr;
+    else {
+        head = new Node(other.head->value);
+        Node *current = head;
+        Node *objHead = other.head;
+        Node *currentObj = objHead;
+        while (currentObj->next != NULL) {
+            current->next = new Node(currentObj->next->value);
+            currentObj = currentObj->next;
+            current = current->next;
+        }
+    }
 
 }
+
 List::List(List&& other){
     
 }
