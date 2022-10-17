@@ -9,7 +9,7 @@ List::List(){
 
 List::List(const List& other){
     if(!other.head) return;
-    head = new Node()
+    head = new Node();
     head->data=other.head->data;
     Node *currSource = other.head;
     Node *curr= head;
@@ -119,22 +119,46 @@ size_t List::remove(const std::string& value){
     return counter;
 }
 
-std::string removeRecursive(Node *start, size_t k){
-    if (k == 0) 
-    { 
-        Node *res = start->next; 
-        delete(start); 
-        return val;   
-    } 
-    start->next = removeRecursive(start->next, k-1); 
-    return start->data; 
-}
+
 
 std::string List::remove(size_t index){
-    size_t numvals=count()
-    if (index < 1||head==NULL||index>=numvals) 
+    size_t numvals=count();
+    if (index < 1||head==NULL||index>=numvals){
        throw std::out_of_range("Index out of range"); 
-    removeRecursive(head,index);
+    }
+    else{
+        std::string val = lookup(index);
+        index=numvals-index;
+        Node *temp;
+        Node* first = head;
+        Node* second = head;
+        for (size_t i = 0; i < index; i++) {
+            // If count of nodes in the given linked list is <= N
+            if (second->next == NULL) {
+                // If count = N i.e. delete the head node
+                if (i == key - 1) {
+                    temp = head;
+                    head = head->next;
+                    free(temp);
+                    return val;
+                }
+            }
+            second = second->next;
+        }
+ 
+        // Increment both the pointers by one until second
+        // pointer reaches the end
+        while (second->next != NULL) {
+            first = first->next;
+            second = second->next;
+        }
+        // First must be pointing to the Nth node from the
+        // end by now So, delete the node first is pointing to
+        temp = first->next;
+        first->next = first->next->next;
+        free(temp);
+        return val;
+    }
 }
 
 const std::string& List::lookup(size_t index) const{
