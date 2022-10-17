@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-std::string c="hi";
+std::string limo="hi";
 List::List(){
     head=NULL;
 }
@@ -96,7 +96,7 @@ void List::print(bool reverse) const{
 }
 
 size_t List::remove(const std::string& value){
-    return c;
+    return limo;
 }
 
 
