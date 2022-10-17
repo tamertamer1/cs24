@@ -140,8 +140,8 @@ std::string List::remove(size_t index){
                     temp = head;
                     head = head->next;
                     free(temp);
-                    return val;
                 }
+                return val;
             }
             second = second->next;
         }
