@@ -93,37 +93,32 @@ void List::print(bool reverse) const{
     }
 }
 
-Node* deleteKey(Node* head, std::string value)
-{
-    // In Linked List is empty Just return it
-    if (!head){
-        return head;
-    }
-    // Until the head data is equal to the key move the head
-    // pointer
-    while (head && head->data == value){
-        head = head->next;
-    }
-    Node *curr = head, *prev = nullptr;
-  
-    while (curr) {
-        if (curr->data == value){
-            prev->next = curr->next;
-        }
-        else
-            prev = curr;
-        curr = curr->next;
-    }
-    delete curr;
-    delete prev;
-    return head;
-}
+
 
 size_t List::remove(const std::string& value){
-    size_t ogcount = count();
-    head=deleteKey(head,value);
-    return ogcount-count();
-}
+    Node* nodeToDelete;
+      while(head != NULL && head->data == value) {
+        nodeToDelete = head;
+        head = head->next;
+        free(nodeToDelete);
+      } 
+
+      Node* temp = head;        
+      if(temp != NULL) {
+        while(temp->next != NULL) {
+          if(temp->next->data == value) {
+            nodeToDelete = temp->next;
+            temp->next = temp->next->next;
+            free(nodeToDelete);
+          } else {
+            temp = temp->next;
+          }
+    }
+    }
+    delete temp;
+    delete nodeToDelete;
+} 
+
 
 
 
