@@ -96,9 +96,10 @@ void List::print(bool reverse) const{
 
 
 size_t List::remove(const std::string& value){
+    size_t ogcount= count();
     Node** p = &head;
     while(*p)
-        if((*p)->item == key) {
+        if((*p)->data == value) {
             Node* tmp = (*p)->next;
             delete *p;
             *p = tmp;
