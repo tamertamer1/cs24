@@ -103,6 +103,7 @@ std::string List::remove(size_t index){
     if (index>=count()){
         throw std::out_of_range("Index out of range");
     }
+    else{
         size_t l=0;
         Node *cur=head;
         if (index==0){
@@ -125,6 +126,7 @@ std::string List::remove(size_t index){
         cur->next=cur->next->next;
         delete cur;
         return c;
+    }
 
 }
 
