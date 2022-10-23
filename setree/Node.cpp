@@ -14,22 +14,27 @@ void del(Node *n){
     delete n;
 };
 
-Node* Insertrec(Node*root, const std::string& value){
-    // if the root is null, create a new node and return it
-    if (root == nullptr) {
-        return new Node(value);
+size_t Insertrec(Node*root, const std::string& value){
+    if (value>root->data && root->right){
+        Insertrec(root->right,value);
     }
- 
-    // if the given key is less than the root node, recur for the left subtree
-    if (value < root->data) {
-        root->left = Insertrec(root->left, value);
+    else if (value > root -> data && !root->right){
+        root->right=new Node(value);
+        root->right->parent=root;
+        root->countn=root->countn+1;
+        return 1;
     }
-    // if the given key is more than the root node, recur for the right subtree
-    else {
-        root->right = Insertrec(root->right, value);
+    if (value<root->data&& root->left){
+        Insertrec(root->left,value);
     }
- 
-    return root;
+    else if (value < root->data&& !root->left){
+        root->left=new Node(value);
+        root->left->parent=root;
+        root->countn=root->countn+1;
+        return 1;
+    }
+    root->countn=root->countn+1;
+    return 1;
 
 };
 size_t recurCount(Node *root){

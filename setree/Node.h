@@ -16,6 +16,6 @@ Node(std::string v): data(v),countn(0), left(0), right(0), parent(0){}
 
 void del(Node *n);
 bool recurCont(Node* top,const std::string& value);
-Node* Insertrec(Node*root, const std::string& value);
+size_t Insertrec(Node*root, const std::string& value);
 size_t recurCount(Node *root);
 #endif

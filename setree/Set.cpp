@@ -27,11 +27,13 @@ size_t Set::count() const{
 };
 
 size_t Set::insert(const std::string& value){
-    if (contains(value)){
-        return 0;
+    if (!mRoot){
+        mRoot=new Node(value);
+        mRoot->countn=mRoot->countn+1;
+        return 1;
     }
-    Insertrec(mRoot,value);
-    return 1;
+    if (contains(value)) {return 0;}
+    return Insertrec(mRoot,value);
 };
 
 const std::string& Set::lookup(size_t n) const{
@@ -44,5 +46,4 @@ void Set::print() const{
 size_t Set::remove(const std::string& value){
     return 0;
 };
-
 
