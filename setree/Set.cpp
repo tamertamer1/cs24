@@ -35,7 +35,7 @@ size_t Set::insert(const std::string& value){
         Node* node = new Node(value);
         if (!mRoot) {
             mRoot = node;
-            return;
+            return 1;
         }
         Node* prev = NULL;
         Node* temp =mRoot;
@@ -51,8 +51,10 @@ size_t Set::insert(const std::string& value){
         }
         if (prev->data > value)
             prev->left = node;
+            return 1;
         else
             prev->right = node;
+            return 1;
         }
 };
 
