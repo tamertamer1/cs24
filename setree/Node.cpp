@@ -2,14 +2,9 @@
 
 bool recurCont(Node* top,const std::string& value){
     if (!top) return false;
-  else {
-    if (value == top->data)
-      return true;
-    else if (value < top->data)
-      return recurCont(top->left, value);      //you forgot to return the value
-    else if (value > top->data)
-      return recurCont(top->right, value);
-  }
+    if (value == top->data) return true;
+    if (value < top->data) return recurCont(top->left, value);
+    return recurCont(top->right, value);
 };
 
 void del(Node *n){
