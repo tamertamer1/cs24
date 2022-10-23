@@ -15,16 +15,22 @@ void del(Node *n){
 };
 
 Node* Insertrec(Node*root, const std::string& value){
-    if (!root) {
+    // if the root is null, create a new node and return it
+    if (root == nullptr) {
         return new Node(value);
     }
-    if (value > root->data) {
-        root->right = Insertrec(root->right, value);
-    }
-    else if (value < root->data){
+ 
+    // if the given key is less than the root node, recur for the left subtree
+    if (value < root->data) {
         root->left = Insertrec(root->left, value);
     }
+    // if the given key is more than the root node, recur for the right subtree
+    else {
+        root->right = Insertrec(root->right, value);
+    }
+ 
     return root;
+
 };
 size_t recurCount(Node *root){
     if(!root)     
