@@ -42,8 +42,7 @@ const std::string& Set::lookup(size_t n) const{
 void Set::print() const{
 };
 
-size_t remove(const std::string& value){
+size_t Set::remove(const std::string& value){
     return 0;
 };
-
 
