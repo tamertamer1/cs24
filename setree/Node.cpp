@@ -26,3 +26,18 @@ Node* Insertrec(Node*root, const std::string& value){
     }
     return root;
 };
+size_t recurCount(Node *root,size_t n){
+    if(!root)
+		return 0;
+	if(root->left!=NULL)
+	{
+		n=n+1;
+		n=recurCount(root->left,n);
+	}
+	if(root->right!=NULL)
+	{
+		n=n+1;
+		n=recurCount(root->right,n);
+	}
+	return n;
+}

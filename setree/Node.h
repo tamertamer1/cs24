@@ -7,9 +7,9 @@
 
 struct Node{
 std::string data;
-size_t c;
+size_t countn;
 Node *left,*right,*parent;
-Node(std::string v): data(v),c(0), left(0), right(0), parent(0){}
+Node(std::string v): data(v),countn(0), left(0), right(0), parent(0){}
 };
 
 
@@ -17,4 +17,5 @@ Node(std::string v): data(v),c(0), left(0), right(0), parent(0){}
 void del(Node *n);
 bool recurCont(Node* top,const std::string& value);
 Node* Insertrec(Node*root, const std::string& value);
+size_t recurCount(Node *root,size_t n);
 #endif

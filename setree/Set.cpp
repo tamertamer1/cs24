@@ -22,9 +22,8 @@ size_t Set::clear(){
 bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
 };
-
 size_t Set::count() const{
-    return 0;
+    return recurCount(mRoot,0);
 };
 
 size_t Set::insert(const std::string& value){
