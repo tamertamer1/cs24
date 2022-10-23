@@ -23,7 +23,11 @@ bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
 };
 size_t Set::count() const{
-    return recurCount(mRoot);
+    if (!mRoot){
+        size_t k=0;
+        return k;
+    }
+    return mRoot ->countn;
 };
 
 size_t Set::insert(const std::string& value){
@@ -46,4 +50,5 @@ void Set::print() const{
 size_t Set::remove(const std::string& value){
     return 0;
 };
+
 
