@@ -16,5 +16,5 @@ Node(std::string v): data(v),c(0), left(0), right(0), parent(0){}
 
 void del(Node *n);
 bool recurCont(Node* top,const std::string& value);
-
+Node* Insertrec(Node*root, const std::string& value);
 #endif

@@ -31,31 +31,8 @@ size_t Set::insert(const std::string& value){
     if (contains(value)){
         return 0;
     }
-    else{
-        Node* node = new Node(value);
-        if (!mRoot) {
-            mRoot = node;
-            return 1;
-        }
-        Node* prev = NULL;
-        Node* temp =mRoot;
-        while (temp) {
-            if (temp->data >value) {
-                prev = temp;
-                temp = temp->left;
-            }
-            else if (temp->data < value) {
-                prev = temp;
-                temp = temp->right;
-            }
-        }
-        if (prev->data > value)
-            prev->left = node;
-            return 1;
-        else
-            prev->right = node;
-            return 1;
-        }
+    Insertrec(mRoot,value);
+    return 1;
 };
 
 const std::string& Set::lookup(size_t n) const{
