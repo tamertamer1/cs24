@@ -6,7 +6,7 @@ Set::Set(){
 };
 
 Set::Set(const Set& other){
-
+    mRoot=copyRec(other.mRoot);
 };
 
 Set::Set(Set&& other){

@@ -97,3 +97,14 @@ const std::string& lookupRec(Node* n, size_t ind, Node *root){
     }
     throw std::out_of_range("Index out of range");
 };
+
+Node* copyRec(Node *in){
+    if(!in){
+        return nullptr;
+    }
+    Node *sec= new Node(in->data);
+    sec->countn=in->countn;
+    sec->left=copyRec(in->left);
+    sec->right=copyRec(in->right);
+    return sec;
+}
