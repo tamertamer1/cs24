@@ -1,4 +1,5 @@
 #include "Node.h"
+#include <iostream>
 
 bool recurCont(Node* top,const std::string& value){
     if (!top) return false;
@@ -45,4 +46,20 @@ size_t recurCount(Node *root){
     else
         return recurCount(root->left)+ 
             recurCount(root->right); 
+};
+
+void printRec(Node* n){
+    if(!n){
+        std::cout<<"-";
+    }
+    else if (!n->left && !n->right){
+        std::cout<<n->data;
+    }
+    else{
+        std::cout<<"(";
+        printRec(n->left);
+        std::cout<<" "<<n->data<<" ";
+        printRec(n->right);
+        std::cout<<")"<<std::endl;
+    }
 };

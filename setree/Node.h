@@ -18,4 +18,5 @@ void del(Node *n);
 bool recurCont(Node* top,const std::string& value);
 size_t Insertrec(Node*root, const std::string& value);
 size_t recurCount(Node *root);
+void printRec(Node* n);
 #endif
