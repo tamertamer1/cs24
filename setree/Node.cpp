@@ -126,13 +126,13 @@ Node* delete_node(Node *root, std::string data)
     {
        Node* temp = root;
        root= root->right;
-       free(temp);
+       delete(temp);
     }
     else if(root->right == nullptr)      // Case 2
     {
        Node* temp = root;
        root = root->left;
-       free(temp);
+       delete(temp);
     }
     else                                 // Case 3
     {
