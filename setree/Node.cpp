@@ -121,7 +121,7 @@ Node* getMinimumKey(Node* curr)
 void searchKey(Node* &curr, std::string key, Node* &parent)
 {
     // traverse the tree and search for the key
-    while (curr != nullptr && curr->data != key)
+    while (curr && curr->data != key)
     {
         // update the parent to the current node
         parent = curr;
@@ -150,12 +150,12 @@ void deleteNode(Node*& root, std::string key)
     searchKey(curr, key, parent);
  
     // return if the key is not found in the tree
-    if (curr == nullptr) {
+    if (!curr) {
         return;
     }
  
     // Case 1: node to be deleted has no children, i.e., it is a leaf node
-    if (curr->left == nullptr && curr->right == nullptr)
+    if (!curr->left && !curr->right)
     {
         // if the node to be deleted is not a root node, then set its
         // parent left/right child to null
