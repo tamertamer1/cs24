@@ -60,7 +60,7 @@ void Set::print() const{
 
 size_t Set::remove(const std::string& value){
     size_t inct=count();
-    delete_node(mRoot,value);
+    deletenode(mRoot,value);
     if (count()!=inct){
         return 1;
     }
