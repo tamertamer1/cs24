@@ -18,7 +18,7 @@ Set::~Set(){
 };
 
 size_t Set::clear(){
-    
+    return 0;
 };
 bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
