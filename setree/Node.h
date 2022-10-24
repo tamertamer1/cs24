@@ -19,4 +19,6 @@ bool recurCont(Node* top,const std::string& value);
 size_t Insertrec(Node*root, const std::string& value);
 size_t recurCount(Node *root);
 void printRec(Node* n);
+size_t numSmaller(Node *n, const std::string& value);
+const std::string& lookupRec(Node *n, size_t ind, Node *root);
 #endif

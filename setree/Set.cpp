@@ -18,9 +18,7 @@ Set::~Set(){
 };
 
 size_t Set::clear(){
-    size_t n=count();
-    del(mRoot);
-    return n;
+    
 };
 bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
@@ -44,7 +42,7 @@ size_t Set::insert(const std::string& value){
 };
 
 const std::string& Set::lookup(size_t n) const{
-    return striii;
+    return lookupRec(mRoot,n,mRoot);
 };
 
 void Set::print() const{
