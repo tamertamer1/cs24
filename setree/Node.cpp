@@ -119,7 +119,6 @@ Node* delete_node(Node *root, std::string data)
   {
     if(root->left == nullptr && root->right == nullptr) // Case 1
     {
-      free(root);
       root = nullptr;
     }
     else if(root->left == nullptr)       // Case 2
@@ -142,6 +141,7 @@ Node* delete_node(Node *root, std::string data)
 
        root->data = temp->data;
        root->right = delete_node(root->right, temp->data);
+
     }
   }
   return root;
