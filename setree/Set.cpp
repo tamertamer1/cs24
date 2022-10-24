@@ -14,11 +14,13 @@ Set::Set(Set&& other){
 };
 
 Set::~Set(){
-    del(mRoot);
+    clear();
 };
 
 size_t Set::clear(){
-    return 0;
+    size_t num=count()
+    del(mRoot);
+    return num;
 };
 bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
