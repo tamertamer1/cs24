@@ -50,7 +50,7 @@ void Set::print() const{
         std::cout<<"-";
     }
     printRec(mRoot);
-    std::endl;
+    std::cout<<std::endl;
 };
 
 size_t Set::remove(const std::string& value){
