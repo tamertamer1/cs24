@@ -23,5 +23,7 @@ size_t numSmaller(Node *n, const std::string& value);
 const std::string& lookupRec(Node *n, size_t ind, Node *root);
 Node* copyRec(Node* in);
 Node* minValueNode(struct Node* node);
-Node* deleteNode(Node* root, const std::string& value);
+void deleteNode(Node*& root, std::string key);
+void searchKey(Node* &curr, std::string key, Node* &parent);
+Node* getMinimumKey(Node* curr);
 #endif
