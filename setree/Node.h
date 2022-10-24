@@ -26,4 +26,5 @@ Node* minValueNode(struct Node* node);
 void deleteNode(Node*& root, std::string key);
 void searchKey(Node* &curr, std::string key, Node* &parent);
 Node* getMinimumKey(Node* curr);
+Node* delete_node(Node *root, std::string data);
 #endif
