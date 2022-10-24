@@ -18,7 +18,7 @@ Set::~Set(){
 };
 
 size_t Set::clear(){
-    size_t num=count()
+    size_t num=count();
     del(mRoot);
     return num;
 };
@@ -65,4 +65,6 @@ size_t Set::remove(const std::string& value){
     }
     return 0;
 };
+
+
 
