@@ -20,6 +20,7 @@ Set::~Set(){
 size_t Set::clear(){
     size_t num=count();
     del(mRoot);
+    mRoot=nullptr;
     return num;
 };
 bool Set::contains(const std::string& value) const{
@@ -65,6 +66,5 @@ size_t Set::remove(const std::string& value){
     }
     return 0;
 };
-
 
 
