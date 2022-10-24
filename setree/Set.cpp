@@ -49,13 +49,13 @@ void Set::print() const{
     if (!mRoot){
         std::cout<<"-";
     }
-    printRec(mRoot);
+    else{
+        printRec(mRoot);
+    }
     std::cout<<std::endl;
 };
 
 size_t Set::remove(const std::string& value){
     return 0;
 };
-
-
 
