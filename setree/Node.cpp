@@ -60,6 +60,6 @@ void printRec(Node* n){
         printRec(n->left);
         std::cout<<" "<<n->data<<" ";
         printRec(n->right);
-        std::cout<<")"<<std::endl;
+        std::cout<<")";
     }
 };
