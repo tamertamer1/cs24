@@ -22,4 +22,6 @@ void printRec(Node* n);
 size_t numSmaller(Node *n, const std::string& value);
 const std::string& lookupRec(Node *n, size_t ind, Node *root);
 Node* copyRec(Node* in);
+Node* minValueNode(struct Node* node);
+Node* deleteNode(Node* root, const std::string& value);
 #endif

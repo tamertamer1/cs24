@@ -108,3 +108,63 @@ Node* copyRec(Node *in){
     sec->right=copyRec(in->right);
     return sec;
 }
+Node* minValueNode(Node* n)
+{
+    Node* current = n;
+  
+    /* loop down to find the leftmost leaf */
+    while (current && current->left != NULL)
+        current = current->left;
+  
+    return current;
+}
+
+Node* deleteNode(Node* root, const std::string& value)
+{
+    // base case
+    if (!root)
+        return root;
+  
+    // If the key to be deleted is 
+    // smaller than the root's
+    // key, then it lies in left subtree
+    if (value < root->data)
+        root->left = deleteNode(root->left, value);
+  
+    // If the key to be deleted is
+    // greater than the root's
+    // key, then it lies in right subtree
+    else if (value > root->data)
+        root->right = deleteNode(root->right, value);
+  
+    // if key is same as root's key, then This is the node
+    // to be deleted
+    else {
+        // node has no child
+        if (!root->left and !root->right)
+            return NULL;
+        
+        // node with only one child or no child
+        else if (!root->left) {
+            Node* temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (!root->right) {
+            Node* temp = root->left;
+            free(root);
+            return temp;
+        }
+  
+        // node with two children: Get the inorder successor
+        // (smallest in the right subtree)
+        Node* temp = minValueNode(root->right);
+  
+        // Copy the inorder successor's content to this node
+        root->data = temp->data;
+  
+        // Delete the inorder successor
+        root->right = deleteNode(root->right, temp->data);
+    }
+    return root;
+}
