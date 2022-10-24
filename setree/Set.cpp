@@ -18,7 +18,9 @@ Set::~Set(){
 };
 
 size_t Set::clear(){
-    return 0;
+    size_t n=count();
+    del(mRoot);
+    return n;
 };
 bool Set::contains(const std::string& value) const{
     return recurCont(mRoot,value);
@@ -58,4 +60,6 @@ void Set::print() const{
 size_t Set::remove(const std::string& value){
     return 0;
 };
+
+
 
