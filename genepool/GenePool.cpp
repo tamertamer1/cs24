@@ -36,7 +36,11 @@ GenePool::GenePool(std::istream& stream){
     
 };
 GenePool::~GenePool(){
-
+    while (it != genepoolmap.end()){
+        genepoolmap.erase(it->first);
+        it++;
+    }
+    
 };
 Person* GenePool::find(const std::string& name) const{
     if (genepoolmap.count(name)){
