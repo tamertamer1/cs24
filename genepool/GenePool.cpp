@@ -5,7 +5,7 @@
 GenePool::GenePool(std::istream& stream){
     std::string line;
     while(getline(stream,line)){
-        if (line[0]!='#' && !line.empty()){
+        if (line[0]!='#' && line.length() > 0){
             std::stringstream ss(line);
             std::string geneval;
             Person* mone= nullptr;
@@ -36,10 +36,9 @@ GenePool::GenePool(std::istream& stream){
     
 };
 GenePool::~GenePool(){
-    while (it != genepoolmap.end()){
-        genepoolmap.erase(it->first);
-        it++;
-    }
+    for(auto i:genepoolmap){
+        delete i.second;}
+        genepoolmap.clear();
     
 };
 Person* GenePool::find(const std::string& name) const{
@@ -48,5 +47,4 @@ Person* GenePool::find(const std::string& name) const{
     }
    return nullptr;
 };
-
 

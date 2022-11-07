@@ -79,19 +79,28 @@ std::set<Person*> Person::ancestors(PMod pmod){
 std::set<Person*> Person::aunts(PMod pmod, SMod smod){
     std::set<Person*> auntset;
     if(pmod==PMod::MATERNAL){
-        auntset=mother()->sisters(PMod::ANY,smod);
+        if(mother()!=nullptr){
+             auntset=mother()->sisters(PMod::ANY,smod);
+        }
+       
     }
     else if(pmod==PMod::PATERNAL){
-        auntset=father()->sisters(PMod::ANY,smod);
+        if (father()!=nullptr){
+            auntset=father()->sisters(PMod::ANY,smod);
+        }
     }
     else{
-        auntset=mother()->sisters(PMod::ANY,smod);
-        std::set<Person*> fsibs=father()->sisters(PMod::ANY,smod);
-        for (Person* fasib:fsibs){
-            auntset.insert(fasib);
+        if(mother()!=nullptr){
+             auntset=mother()->sisters(PMod::ANY,smod);
+        }
+        if (father()!=nullptr){
+            std::set<Person*> fsibs=father()->sisters(PMod::ANY,smod);
+            for (Person* fasib:fsibs){
+                auntset.insert(fasib);
+                }
         }
 
-    }
+}
     return auntset;
 
 };
@@ -457,16 +466,24 @@ std::set<Person*> Person::sons(){
 std::set<Person*> Person::uncles(PMod pmod, SMod smod){
     std::set<Person*> uncset;
     if(pmod==PMod::MATERNAL){
-        uncset=mother()->brothers(PMod::ANY,smod);
+        if(mother()!=nullptr){
+            uncset=mother()->brothers(PMod::ANY,smod);
+        }
     }
     else if(pmod==PMod::PATERNAL){
-        uncset=father()->brothers(PMod::ANY,smod);
+        if (father()!=nullptr){
+            uncset=father()->brothers(PMod::ANY,smod);
+        }
     }
     else{
-        uncset=mother()->brothers(PMod::ANY,smod);
-        std::set<Person*> fsibs=father()->brothers(PMod::ANY,smod);
-        for (Person* fasib:fsibs){
-            uncset.insert(fasib);
+        if(mother()!=nullptr){
+            uncset=mother()->brothers(PMod::ANY,smod);
+        }
+        if (father()!=nullptr){
+            std::set<Person*> fsibs=father()->brothers(PMod::ANY,smod);
+            for (Person* fasib:fsibs){
+             uncset.insert(fasib);
+            }
         }
     }
     return uncset;
