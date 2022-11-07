@@ -255,9 +255,15 @@ std::set<Person*> Person::grandmothers(PMod pmod){
 };
 std::set<Person*> Person::grandparents(PMod pmod){
     std::set<Person*> gps;
-    gps=grandmothers(pmod);
-    for (Person* gp :grandfathers()){
+    std::set<Person*> gms;
+    std::set<Person*> gfs;
+    gms=grandmothers();
+    gfs=grandfathers();
+    for (Person* gp :gfs){
         gps.insert(gp);
+    }
+    for (Person* gm :gms){
+        gps.insert(gm);
     }
     return gps;
 
@@ -333,7 +339,7 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
         if (father()!=nullptr){
             dchild=father()->chilset;
             for (Person* child:dchild){
-                if(sibs.find(child) == sibs.end()){
+                if(!sibs.count(child)){
                     sibs.insert(child);
                 }
             }
@@ -382,11 +388,11 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
     else if (pmod==PMod::PATERNAL && smod==SMod::HALF){
         std::set<Person*> mchild;
         std::set<Person*> dchild;
-        if (mother()!=nullptr){
+        if (father()!=nullptr){
             dchild=father()->chilset;
             sibs=dchild;
         }
-        if(father()!=nullptr){
+        if(mother()!=nullptr){
             mchild=mother()->chilset;
             for (Person* child:mchild){
                 if(sibs.count(child)){
