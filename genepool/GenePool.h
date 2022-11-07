@@ -15,9 +15,9 @@ using namespace std;
 
 class GenePool {
   // Member Variables
-  map <string,Person*> genepoolmap;
+  map <std::string,Person*> genepoolmap;
+  std::map<std::string, Person*>::iterator it = genepoolmap.begin();
   // Helper Functions
-
 public:
 
   // Build a database of people from a TSV file.

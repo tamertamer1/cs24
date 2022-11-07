@@ -19,9 +19,10 @@ class Person {
 public:
 std::string data;
 Gender gend;
+std::set<Person*> chilset;
 
   // Constructor
-  Person(Person* m, Person* a,std::string d, Gender g):mom(m), dad(a),data(d),gend(g){};
+  Person(Person* m, Person* a,std::string d, Gender g,std::set<Person*> s):mom(m), dad(a),data(d),gend(g),chilset(s){};
   // Destructor?
 
   // Required Getter Functions

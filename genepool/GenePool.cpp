@@ -8,29 +8,41 @@ GenePool::GenePool(std::istream& stream){
         if (line[0]!='#' && !line.empty()){
             std::stringstream ss(line);
             std::string geneval;
-            Person* mom=nullptr;
-            Person* dad=nullptr;
+            Person* mone= nullptr;
+            Person* done= nullptr;
             vector<std::string> vals;
             while(getline(ss,geneval,'\t')){
                 vals.push_back(geneval);
             }
-            mom->data=vals[2];
-            dad->data=vals[3];
             Gender gend;
+            mone= find(vals[2]);
+            done= find(vals[3]);
             if(vals[1] == "male"){
                 gend = Gender::MALE;
             }
             else {
                 gend = Gender::FEMALE;
             }
-            genepoolmap[vals[0]]= new Person(mom,dad,vals[0],gend);
+            std::set<Person*> eset;
+            genepoolmap[vals[0]]= new Person(mone,done,vals[0],gend,eset);
+            if (mone!=nullptr){
+                mone->chilset.insert(find(vals[0]));
             }
-        };
+            if (done!=nullptr){
+                done->chilset.insert(find(vals[0]));
+            }
+        }
+    };
+    
 };
 GenePool::~GenePool(){
 
 };
 Person* GenePool::find(const std::string& name) const{
-    return genepoolmap.at(name);
+    if (genepoolmap.count(name)){
+         return genepoolmap.at(name);
+    }
+   return nullptr;
 };
+
 
