@@ -266,8 +266,8 @@ std::set<Person*> Person::grandparents(PMod pmod){
     std::set<Person*> gps;
     std::set<Person*> gms;
     std::set<Person*> gfs;
-    gms=grandmothers();
-    gfs=grandfathers();
+    gms=grandmothers(pmod);
+    gfs=grandfathers(pmod);
     for (Person* gp :gfs){
         gps.insert(gp);
     }
