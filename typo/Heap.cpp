@@ -66,7 +66,7 @@ void Heap::push(const std::string& value, float score){
         mData[mCount]=newent;
         mCount++;
         size_t currind=mCount;
-        while((currind-1)>0||mData[size_t((currind-1)/2)].score>mData[currind].score){
+        while((currind)>0 && mData[size_t((currind-1)/2)].score>mData[currind].score){
             Entry tempent=mData[size_t((currind-1)/2)];
             mData[size_t((currind-1)/2)]=mData[currind];
             mData[currind]=tempent;
