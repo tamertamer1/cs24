@@ -70,6 +70,7 @@ void Heap::push(const std::string& value, float score){
             Entry tempent=mData[size_t((currind-1)/2)];
             mData[size_t((currind-1)/2)]=mData[currind];
             mData[currind]=tempent;
+            currind=size_t((currind-1)/2);
         }
     }
     else{
