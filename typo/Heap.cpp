@@ -63,15 +63,15 @@ void Heap::push(const std::string& value, float score){
 };
 const Heap::Entry& Heap::top() const{
     if (mCount!=0){
-        Entry minentr;
+        size_t minscoreind=0;
         float minscore=mData[0].score;
         for (size_t i=0;i<mCount;i++){
             if(mData[i].score<minscore){
+                minscoreind=i;
                 minscore=mData[i].score;
-                minentr=mData[i];
             }
         }
-        return minentr;
+        return mData[minscoreind];
     }
     else{
         throw std::underflow_error("No Items in heap.");
