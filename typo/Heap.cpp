@@ -59,7 +59,22 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
     return minentr;
 };
 void Heap::push(const std::string& value, float score){
-    
+    if(mCount<mCapacity){
+        Entry newent;
+        newent.score=score;
+        newent.value=value;
+        mData[mCount]=newent;
+        mCount++;
+        size_t currind=mCount;
+        while((currind-1)>0||mData[size_t((currind-1)/2)].score>mData[currind].score){
+            Entry tempent=mData[size_t((currind-1)/2)];
+            mData[size_t((currind-1)/2)]=mData[currind];
+            mData[currind]=tempent;
+        }
+    }
+    else{
+        throw std::overflow_error("No place in heap.");
+    }
 };
 const Heap::Entry& Heap::top() const{
     if (mCount!=0){
