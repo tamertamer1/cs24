@@ -33,15 +33,15 @@ const Heap::Entry& Heap::lookup(size_t index) const{
 Heap::Entry Heap::pop(){
     if (mCount!=0){
         size_t minscoreind=0;
-        Entry minent;
         float minscore=mData[0].score;
         for (size_t i=0;i<mCount;i++){
             if(mData[i].score<minscore){
-                minscore=mData[i].score;
                 minscoreind=i;
-                minent=mData[i];
+                minscore=mData[i].score;
             }
         }
+        Entry minent;
+        minent=mData[minscoreind];
         mData[minscoreind]=mData[mCount-1];
         mCount=mCount-1;
         size_t currind=minscoreind;
