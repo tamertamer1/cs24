@@ -42,10 +42,40 @@ Heap::Entry Heap::pop(){
                 minent=mData[i];
             }
         }
-        for(size_t i=minscoreind+1;i<mCount;i++){
-            mData[i-1]=mData[i];
-        }
+        mData[minscoreind]=mData[mCount-1];
         mCount=mCount-1;
+         while(((currind*2+1)<mCount)||(((currind*2+2)<mCount))){
+            if((currind*2+2)<mCount){
+                if( (mData[currind*2+1].score<mData[currind].score) || (mData[currind*2+2].score<mData[currind].score)){
+                    if( mData[currind*2+1].score<= mData[currind*2+2].score){
+                        Entry tempent=mData[currind*2+1];
+                        mData[currind*2+1]=mData[currind];
+                        mData[currind]=tempent;
+                        currind=currind*2+1;
+                    }
+                    else{
+                        Entry tempent=mData[currind*2+2];
+                        mData[currind*2+2]=mData[currind];
+                        mData[currind]=tempent;
+                        currind=currind*2+2;
+                    }
+                }
+                else{
+                    break;
+                }
+            }
+            else{
+                if(mData[currind*2+1].score<mData[currind].score){
+                    Entry tempent=mData[currind*2+1];
+                    mData[currind*2+1]=mData[currind];
+                    mData[currind]=tempent;
+                    currind=currind*2+1;
+                }
+                else{
+                    break;
+                }
+            }
+        }
         return minent;
     }
     else{
