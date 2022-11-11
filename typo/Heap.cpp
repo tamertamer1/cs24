@@ -93,6 +93,9 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
                     mData[currind]=tempent;
                     currind=currind*2+1;
                 }
+                else{
+                    break;
+                }
             }
         }
         return minent;
