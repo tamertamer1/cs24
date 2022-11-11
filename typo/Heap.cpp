@@ -63,18 +63,21 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
                 minscore=mData[i].score;
             }
         }
+        Entry minent;
+        minent=mData[minscoreind];
         Entry tempent;
         tempent.score=score;
         tempent.value=value;
         mData[minscoreind]=tempent;
         size_t currind=minscoreind;
+
         while((currind)>0 && mData[size_t((currind-1)/2)].score>mData[currind].score){
             Entry tempent=mData[size_t((currind-1)/2)];
             mData[size_t((currind-1)/2)]=mData[currind];
             mData[currind]=tempent;
             currind=size_t((currind-1)/2);
         }
-
+        return minent;
     }
     else{
         throw std::underflow_error("No Items in heap.");
