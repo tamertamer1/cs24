@@ -44,6 +44,7 @@ Heap::Entry Heap::pop(){
         }
         mData[minscoreind]=mData[mCount-1];
         mCount=mCount-1;
+        size_t currind=minscoreind;
          while(((currind*2+1)<mCount)||(((currind*2+2)<mCount))){
             if((currind*2+2)<mCount){
                 if( (mData[currind*2+1].score<mData[currind].score) || (mData[currind*2+2].score<mData[currind].score)){
