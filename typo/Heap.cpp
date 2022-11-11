@@ -13,7 +13,7 @@ Heap::Heap(Heap&& other){
     
 };
 Heap::~Heap(){
-
+    delete [] mData;
 };
 
 size_t Heap::capacity() const{
