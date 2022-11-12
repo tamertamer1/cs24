@@ -24,6 +24,7 @@ Heap::Heap(Heap&& other){
     other.mCount=0;
     other.mCapacity=0;
     other.mData=nullptr;
+    delete other.mData;
 };
 Heap::~Heap(){
     delete [] mData;
