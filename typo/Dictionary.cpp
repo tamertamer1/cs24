@@ -35,5 +35,6 @@ Heap Dictionary::correct(const std::vector<Point>& points, size_t maxcount, floa
             }
         }
     }
+    return worheap;
 };
 
