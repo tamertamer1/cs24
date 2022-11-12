@@ -15,12 +15,19 @@ Heap::Heap(const Heap& other){
     }
 };
 Heap::Heap(Heap&& other){
+    mData= new Entry[other.mCapacity];
+    mCount=other.mCount;
+    mCapacity=other.mCapacity;
+    for (size_t i=0;i<other.mCount;i++){
+        mData[i]=other.mData[i];
+    }
     other.mCount=0;
     other.mCapacity=0;
     other.mData=nullptr;
+    
 };
 Heap::~Heap(){
-    delete mData;
+    delete [] mData;
 };
 
 size_t Heap::capacity() const{
