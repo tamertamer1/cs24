@@ -22,7 +22,7 @@ Heap Dictionary::correct(const std::vector<Point>& points, size_t maxcount, floa
                 float charscore=(1/(10*pow(chardist,2)+1));
                 wordscore=wordscore+charscore;
              }
-            float totscore=wordscore/3;
+            float totscore=wordscore/word.length();
             if(totscore>=cutoff){
                 if(worheap.count()<worheap.capacity()){
                     worheap.push(word,totscore);
