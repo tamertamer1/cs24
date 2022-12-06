@@ -18,8 +18,6 @@ List::List(const List& other){
         curother=curother->next;
         cur=cur->next;   
     }
-    curother=other.head;
-    delete curother;
 
 }
 
