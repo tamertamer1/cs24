@@ -22,7 +22,8 @@ List::List(const List& other){
 }
 
 List::List(List&& other){
-    
+    head=other.head;
+    other.head=nullptr;   
 }
 void printReverseRecursive (Node *n,Node *h){
     if(n) {
